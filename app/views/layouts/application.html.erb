@@ -12,7 +12,15 @@
   <body>
     <%= render 'shared/navbar' %>
     <%= render 'shared/flashes' %>
-    <%= yield %>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-10 col-md-8 offset-1 offset-md-2">
+          <%= yield %>
+        </div>
+      </div>
+    </div>
+
     <%= javascript_include_tag 'application' %>
 
     <%= javascript_pack_tag 'application' %>

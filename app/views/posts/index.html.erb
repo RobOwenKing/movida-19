@@ -1,0 +1,13 @@
+<h1>Local posts</h1>
+<%= link_to "Add post", new_post_path %>
+
+<% @posts.each do |post| %>
+  <div class="post">
+    <% if post.isolating == true %>
+      <p>I am <strong>self-isolating</strong> and need help with:</p>
+    <% else %>
+      <p>If you are self-isolating, <strong>I can help</strong> you with:</p>
+    <% end %>
+    <p><%= post.comments %></p>
+  </div>
+<% end %>
