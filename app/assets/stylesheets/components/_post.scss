@@ -2,4 +2,31 @@
   // border: black 1px solid;
   border-radius: 4px;
   box-shadow: 1px 1px 4px #BBBBBB;
+  padding: 8px 16px;
+  margin: 8px auto;
+}
+
+.checkboxes {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+.checkbox {
+  width: 250px;
+  border: 1px solid black;
+  border-radius: 2px;
+  margin-top: 8px;
+  margin-bottom: 8px;
+  padding: 4px 12px;
+  display: flex;
+  align-items: center;
+}
+
+.checkbox i {
+  padding: 4px;
+}
+
+.unchecked {
+  opacity: 0.5;
 }
