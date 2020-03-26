@@ -2,7 +2,7 @@ class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
 
   def index
-    @posts = Post.all
+    @posts = Post.all.order(created_at: :desc)
   end
 
   def show; end
@@ -13,8 +13,9 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.new(post_params)
+    @post.user = current_user
     @post.save
-    redirect_to post_path(@post)
+    redirect_to posts_path()
   end
 
   def edit; end
@@ -37,6 +38,6 @@ class PostsController < ApplicationController
   end
 
   def post_params
-    params.require(:post).permit(:title, :content)
+    params.require(:post).permit(:isolating, :shopping, :mail, :phone_call, :supplies, :comments)
   end
 end

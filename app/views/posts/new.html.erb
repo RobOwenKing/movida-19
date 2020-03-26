@@ -1,22 +1,28 @@
-<div class="container">
-  <div class="row">
-    <div class="col-xs-12 col-sm-6 col-sm-offset-3">
-      <div class="form-post">
-        <h1>Write a post</h1>
-        <%= simple_form_for(@post) do |f| %>
-        <div class="row">
-          <div class="col-xs-6">
-            <%= f.input :name, placeholder: "How to design a form" %>
-          </div>
-          <div class="col-xs-6">
-            <%= f.input :status, collection: Post::STATUSES, prompt: "Which status" %>
-          </div>
-        </div>
-          <!-- Inject categories here -->
-          <%= f.input :content, placeholder: "In this tutorial..." %>
-          <%= f.submit "Save", class: "btn btn-primary"  %>
-        <% end %>
+<h1>New post</h1>
+
+<div class="post">
+  <%= simple_form_for @post do |f| %>
+    <%= f.input_field :isolating,
+        as: :radio_buttons,
+        collection: [['true', 'I am self-isolating and need help with:'], ['false', 'I am not self-isolating and can help with:']],
+        label_method: :second,
+        value_method: :first
+    %>
+    <div class="checkboxes">
+      <div class="checkbox">
+        <%= f.input :shopping, as: :boolean, label: "Picking up shopping" %>
+      </div>
+      <div class="checkbox">
+        <%= f.input :mail, as: :boolean, label: "Posting mail" %>
+      </div>
+      <div class="checkbox">
+        <%= f.input :phone_call, as: :boolean, label: "A friendly phone call" %>
+      </div>
+      <div class="checkbox">
+        <%= f.input :supplies, as: :boolean, label: "Urgent supplies" %>
       </div>
     </div>
-  </div>
+    <%= f.input :comments, label: "Notes:" %>
+    <%= f.button :submit %>
+  <% end %>
 </div>
