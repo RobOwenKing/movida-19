@@ -22,7 +22,8 @@
         <%= f.input :supplies, as: :boolean, label: "Urgent supplies" %>
       </div>
     </div>
-    <%= f.input :comments, label: "Notes:" %>
+    <p>Notes (<span id="char-count">255</span> characters left):</p>
+    <%= f.input :comments, as: :text, label: false %>
     <%= f.button :submit %>
   <% end %>
 </div>

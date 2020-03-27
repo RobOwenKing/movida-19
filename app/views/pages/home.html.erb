@@ -1,3 +1,10 @@
 <h1>Movida-19</h1>
-<p>Let's come together while staying apart</p>
-<iframe src="https://giphy.com/embed/ixvKqzJFAg2DC" width="480" height="272" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/hd-ixvKqzJFAg2DC">via GIPHY</a></p>
+<h4>Help others and get help</h4>
+
+<% if user_signed_in? %>
+  <%= link_to "See nearby posts", posts_path %>
+<% else %>
+  <%= link_to "Sign up", new_user_registration_path %>
+<% end %>
+
+<h3>Let's come together while staying apart</h3>
