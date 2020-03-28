@@ -2,7 +2,8 @@ class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
 
   def index
-    @posts = Post.all.order(created_at: :desc)
+    coords = [current_user.latitude, current_user.longitude]
+    @posts = Post.near(coords, 1).order(created_at: :desc)
   end
 
   def show; end
@@ -38,6 +39,6 @@ class PostsController < ApplicationController
   end
 
   def post_params
-    params.require(:post).permit(:isolating, :shopping, :mail, :phone_call, :supplies, :comments)
+    params.require(:post).permit(:isolating, :shopping, :mail, :phone_call, :supplies, :comments, :address)
   end
 end
