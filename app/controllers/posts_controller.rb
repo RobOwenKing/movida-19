@@ -14,7 +14,12 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.new(post_params)
+
     @post.user = current_user
+    @post.address = current_user.address
+    @post.longitude = current_user.longitude
+    @post.latitude = current_user.latitude
+
     @post.save
     redirect_to posts_path()
   end
@@ -39,6 +44,6 @@ class PostsController < ApplicationController
   end
 
   def post_params
-    params.require(:post).permit(:isolating, :shopping, :mail, :phone_call, :supplies, :comments, :address)
+    params.require(:post).permit(:isolating, :shopping, :mail, :phone_call, :supplies, :comments)
   end
 end
