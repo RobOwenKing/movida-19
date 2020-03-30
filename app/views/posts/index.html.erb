@@ -1,4 +1,12 @@
 <h1>Nearby posts</h1>
+
+<%= form_with(url: "/hangouts", method: "get") do %>
+  The most recent posts within
+  <%= select_tag(:distance, options_for_select([['100 metres', 0.1], ['250 metres', 0.25], ['500 metres', 0.5], ['1 kilometre', 1]], 0.1)) %>
+  of <%= current_user.address %>
+  <%= submit_tag "Update list" %>
+<% end %>
+
 <%= link_to "Add post", new_post_path %>
 
 <% @posts.each do |post| %>
