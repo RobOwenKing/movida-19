@@ -2,9 +2,6 @@
 
 <div class="post">
   <%= simple_form_for @post do |f| %>
-    <div class="form-inline">
-      <%= f.input :address, label: "Address:" %>
-    </div>
     <%= f.input_field :isolating,
         as: :radio_buttons,
         collection: [['true', 'I am self-isolating and need help with:'], ['false', 'I am not self-isolating and can help with:']],
