@@ -7,7 +7,7 @@
   <%= submit_tag "Update list" %>
 <% end %>
 
-<%= link_to "Add post", new_post_path %>
+<%= link_to "Add post", new_post_path, class: "button button-primary" %>
 
 <% @posts.each do |post| %>
   <div class="post">

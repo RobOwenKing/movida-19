@@ -1,0 +1,21 @@
+.button-primary {
+  color: white;
+  background-color: $main;
+  border-radius: 4px;
+  opacity: 0.8;
+}
+
+.button-primary:hover {
+  color: white;
+  text-decoration: none;
+  opacity: 1;
+}
+
+.button-home {
+  padding: 16px 24px;
+  margin-top: 48px;
+}
+
+.button {
+  padding: 4px 8px;
+}
