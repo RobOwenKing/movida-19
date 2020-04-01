@@ -6,6 +6,6 @@
   <% if user_signed_in? %>
     <%= link_to "See nearby posts", posts_path, class: "button-home button-primary" %>
   <% else %>
-    <%= link_to "Sign up", new_user_registration_path %>
+    <%= link_to "Sign up", new_user_registration_path, class: "button-home button-primary" %>
   <% end %>
 </div>
