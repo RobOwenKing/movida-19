@@ -5,13 +5,13 @@
 
   <div class="form-inputs">
     <%= f.input :name,
+                autofocus: true,
                 required: true %>
     <%= f.input :address,
                 required: true,
                 hint: "We use your address to only show you requests for and offers of help near where you live." %>
     <%= f.input :email,
                 required: true,
-                autofocus: true,
                 input_html: { autocomplete: "email" }%>
     <%= f.input :password,
                 required: true,
