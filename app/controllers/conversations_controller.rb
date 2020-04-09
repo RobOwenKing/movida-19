@@ -5,6 +5,11 @@ class ConversationsController < ApplicationController
   def show
   end
 
+  def new
+    @conversation = Conversation.new
+    @message = Message.new
+  end
+
   def create
   end
 end
