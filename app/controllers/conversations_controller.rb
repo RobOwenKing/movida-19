@@ -6,7 +6,8 @@ class ConversationsController < ApplicationController
   end
 
   def new
-    @conversation = Conversation.new
+    @post = Post.find(params[:post_id])
+    @conversation = Conversation.create(user: current_user, post: @post)
     @message = Message.new
   end
 

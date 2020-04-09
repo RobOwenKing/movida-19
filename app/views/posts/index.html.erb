@@ -11,6 +11,7 @@
 
 <% @posts.each do |post| %>
   <div class="post">
+    <%= link_to "Message #{post.user.name}", new_post_conversation_path(post) %>
     <% if post.isolating == true %>
       I am <strong>self-isolating</strong> and need help with:
     <% else %>
