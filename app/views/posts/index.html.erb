@@ -7,15 +7,17 @@
   <%= submit_tag "Update list" %>
 <% end %>
 
+<%= "No posts found near you. Be the first to add one:" if @posts.length == 0 %>
+
 <%= link_to "Add post", new_post_path, class: "button button-primary" %>
 
 <% @posts.each do |post| %>
   <div class="post">
-    <%= link_to "Message #{post.user.name}", new_post_conversation_path(post) %>
+    <%= "#{post.user.name}:" %>
     <% if post.isolating == true %>
-      I am <strong>self-isolating</strong> and need help with:
+      I am <strong>self-isolating</strong> and need help with...
     <% else %>
-      If you are self-isolating, <strong>I can help</strong> you with:
+      If you are self-isolating, <strong>I can help</strong> you with...
     <% end %>
     <div class="checkboxes">
       <div class="checkbox <%= post.shopping ? "checked" : "unchecked" %>">
@@ -59,5 +61,6 @@
     <div>
       Updated <%= time_ago_in_words(post.updated_at) %> ago
     </div>
+    <%= link_to "Message #{post.user.name}", new_post_conversation_path(post) %>
   </div>
 <% end %>
