@@ -4,7 +4,7 @@
   <%= simple_form_for @post do |f| %>
     <%= f.input_field :isolating,
         as: :radio_buttons,
-        collection: [['true', 'I am self-isolating and need help with:'], ['false', 'I am not self-isolating and can help with:']],
+        collection: [['true', 'I am self-isolating and need help with...'], ['false', 'I am not self-isolating and can help with...']],
         label_method: :second,
         value_method: :first
     %>
