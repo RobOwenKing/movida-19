@@ -1,2 +1,77 @@
-<h1>Conversations#show</h1>
-<p>Find me in app/views/conversations/show.html.erb</p>
+<% if @post.user == current_user %>
+  <h1>Conversation with <%= @conversation.user.name %></h1>
+<% else %>
+  <h1>Conversation with <%= @post.user.name %></h1>
+<% end %>
+
+<%= simple_form_for [@conversation, @message] do |f| %>
+  <p>Your message (<span id="char-count">255</span> characters left):</p>
+  <%= f.input :body, as: :text, label: false %>
+  <%= f.submit "Send message", class: "button button-primary" %>
+<% end %>
+
+<% @messages.each do |message| %>
+  <div class="post">
+    <%= message.body %>
+    <div>
+      Updated <%= time_ago_in_words(message.updated_at) %> ago
+    </div>
+  </div>
+<% end %>
+
+
+<% if @post.user == current_user %>
+  <h4>Your original post</h4>
+<% else %>
+  <h4><%= @post.user.name %>'s original post</h4>
+<% end %>
+
+<div class="post">
+  <% if @post.isolating == true %>
+    I am <strong>self-isolating</strong> and need help with:
+  <% else %>
+    If you are self-isolating, <strong>I can help</strong> you with:
+  <% end %>
+  <div class="checkboxes">
+    <div class="checkbox <%= @post.shopping ? "checked" : "unchecked" %>">
+      <% if @post.shopping %>
+        <i class="far fa-check-square"></i>
+      <% else %>
+        <i class="far fa-square"></i>
+      <% end %>
+      Picking up shopping
+    </div>
+
+    <div class="checkbox <%= @post.mail ? "checked" : "unchecked" %>">
+      <% if @post.mail %>
+        <i class="far fa-check-square"></i>
+      <% else %>
+        <i class="far fa-square"></i>
+      <% end %>
+      Posting mail
+    </div>
+
+    <div class="checkbox <%= @post.phone_call ? "checked" : "unchecked" %>">
+      <% if @post.phone_call %>
+        <i class="far fa-check-square"></i>
+      <% else %>
+        <i class="far fa-square"></i>
+      <% end %>
+      A friendly phone call
+    </div>
+
+    <div class="checkbox <%= @post.supplies ? "checked" : "unchecked" %>">
+      <% if @post.supplies %>
+        <i class="far fa-check-square"></i>
+      <% else %>
+        <i class="far fa-square"></i>
+      <% end %>
+      Urgent supplies
+    </div>
+  </div>
+
+  Notes: <%= @post.comments %>
+  <div>
+    Updated <%= time_ago_in_words(@post.updated_at) %> ago
+  </div>
+</div>
