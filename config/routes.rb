@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   root to: 'pages#home'
 
   resources :posts do
-    resources :conversations, only: [ :new, :create ]
+    resources :conversations, only: [ :new ]
   end
 
   resources :conversations, only: [ :index, :show ] do
