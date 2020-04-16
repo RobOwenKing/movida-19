@@ -11,14 +11,13 @@
 <% end %>
 
 <% @messages.each do |message| %>
-  <div class="post">
+  <div class="post <%= 'text-right' if message.user == current_user %>">
     <%= message.body %>
-    <div>
-      Updated <%= time_ago_in_words(message.updated_at) %> ago
+    <div class="small-text">
+      Sent <%= time_ago_in_words(message.updated_at) %> ago
     </div>
   </div>
 <% end %>
-
 
 <% if @post.user == current_user %>
   <h4>Your original post</h4>
