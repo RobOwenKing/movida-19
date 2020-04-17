@@ -1,2 +1,8 @@
 <h1>My Messages</h1>
-<p>Find me in app/views/conversations/index.html.erb</p>
+
+<% @participants.each do |participant| %>
+  <% convo = participant.conversation %>
+  <div class="post">
+    <h4><%= convo.user == current_user ? convo.post.user.name : convo.user.name %></h4>
+  </div>
+<% end %>
