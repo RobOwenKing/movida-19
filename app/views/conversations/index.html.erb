@@ -1,8 +1,8 @@
 <h1>My Messages</h1>
 
-<% @participants.each do |participant| %>
-  <% convo = participant.conversation %>
+<% @conversations.each do |convo| %>
   <div class="post">
-    <h4><%= convo.user == current_user ? convo.post.user.name : convo.user.name %></h4>
+    <h4><%= convo[0].user == current_user ? convo[0].post.user.name : convo[0].user.name %></h4>
+    <p><%= convo[1].body if convo[1] != nil %></p>
   </div>
 <% end %>
