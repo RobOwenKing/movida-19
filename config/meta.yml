@@ -1,1 +1,5 @@
-meta.yml
+meta_product_name: "Movida-19"
+meta_title: "Movida-19 - Let's come together while staying apart"
+meta_description: "Offer help during quarantine to those near you and find help if you're self-isolating."
+meta_image: "cover.png" # should exist in `app/assets/images/`
+twitter_account: "@product_twitter_account"
