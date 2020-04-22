@@ -2,7 +2,12 @@
 
 <% @conversations.each do |convo| %>
   <div class="post">
-    <h4><%= convo[0].user == current_user ? convo[0].post.user.name : convo[0].user.name %></h4>
-    <p><%= convo[1].body if convo[1] != nil %></p>
+    <a href="<%= conversation_path(convo) %>">
+      <h4><%= convo[0].user == current_user ? convo[0].post.user.name : convo[0].user.name %></h4>
+      <% if convo[1] != nil %>
+        <%= convo[1].user == current_user ? "You" : convo[1].user.name %>:
+        <%= convo[1].body %>
+      <% end %>
+    </a>
   </div>
 <% end %>
