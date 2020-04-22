@@ -1,6 +1,6 @@
 class ConversationsController < ApplicationController
   def index
-    @participants = Participant.where(user: current_user)
+    @participants = Participant.where(user: current_user).order(created_at: :desc)
     @conversations = @participants.map { |part| [part.conversation, Message.where(conversation: part.conversation).last] }
   end
 

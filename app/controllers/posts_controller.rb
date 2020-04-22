@@ -2,7 +2,6 @@ class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
 
   def index
-
     coords = [current_user.latitude, current_user.longitude]
     @posts = Post.near(coords, 1).order(created_at: :desc)
   end
@@ -21,8 +20,11 @@ class PostsController < ApplicationController
     @post.longitude = current_user.longitude
     @post.latitude = current_user.latitude
 
-    @post.save
-    redirect_to posts_path()
+    if @post.save
+      redirect_to posts_path()
+    else
+      render :new
+    end
   end
 
   def edit; end

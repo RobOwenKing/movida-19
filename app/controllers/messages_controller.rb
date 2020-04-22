@@ -4,6 +4,8 @@ class MessagesController < ApplicationController
     message.conversation_id = params[:conversation_id]
     message.user = current_user
     message.body = params[:message][:body]
-    message.save
+    if message.save
+      redirect_to conversation_path(message.conversation_id)
+    end
   end
 end
