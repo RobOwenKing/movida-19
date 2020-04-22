@@ -58,7 +58,7 @@
     </div>
 
     Notes: <%= post.comments %>
-    <div>
+    <div class="small-text">
       Updated <%= time_ago_in_words(post.updated_at) %> ago
     </div>
     <%= link_to "Message #{post.user.name}", new_post_conversation_path(post) %>

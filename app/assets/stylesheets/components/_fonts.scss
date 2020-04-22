@@ -3,8 +3,12 @@ h1, h4 {
   font-weight: bold;
 }
 
-strong {
+strong, a:hover {
   color: $main;
+}
+
+a:hover {
+  text-decoration: none;
 }
 
 .small-text {
@@ -15,3 +19,4 @@ strong {
 .text-right {
   text-align: right;
 }
+
