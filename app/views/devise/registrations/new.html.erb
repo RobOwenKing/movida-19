@@ -9,7 +9,7 @@
                 required: true %>
     <%= f.input :address,
                 required: true,
-                hint: "We use your address to only show you requests for and offers of help near where you live." %>
+                hint: "We only use your address to show you nearby posts. We never display or share it." %>
     <%= f.input :email,
                 required: true,
                 input_html: { autocomplete: "email" }%>
@@ -23,8 +23,8 @@
   </div>
 
   <div class="form-actions">
-    <%= f.button :submit, "Sign up" %>
+    <%= f.button :submit, "Sign up", class: "button button-primary" %>
   </div>
 <% end %>
 
-<%= render "devise/shared/links" %>
+<%= link_to "Log in", new_session_path(resource_name), class: "button button-second" %>
