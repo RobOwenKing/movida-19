@@ -4,7 +4,7 @@
   border-radius: 4px;
   border-width: 0px;
   opacity: 0.8;
-  margin-bottom: 16px;
+  margin: auto auto 16px auto;
 }
 
 .button-primary:hover {
@@ -29,14 +29,11 @@
   padding: 16px 24px;
 }
 
-.button-home.button-primary {
-  margin-top: 48px;
-}
-
-.button-home.button-second {
-  margin-top: 24px;
-}
-
 .button {
   padding: 4px 8px;
+}
+
+.buttons {
+  display: grid;
+  grid-template-columns: 1fr;
 }
