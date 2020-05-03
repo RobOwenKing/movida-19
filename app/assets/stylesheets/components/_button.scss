@@ -15,8 +15,12 @@
 
 .button-second {
   border: 1px solid $main;
+  background-color: white;
   border-radius: 4px;
   margin: 8px auto;
+  line-height: normal;
+  -webkit-appearance: none;
+  -moz-appearance: none;
 }
 
 .button-second:hover {

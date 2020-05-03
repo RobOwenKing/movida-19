@@ -4,7 +4,7 @@
   The most recent posts within
   <%= select_tag(:distance, options_for_select([['100 metres', 0.1], ['250 metres', 0.25], ['500 metres', 0.5], ['1 kilometre', 1]], 0.1)) %>
   of <%= current_user.address %>
-  <%= submit_tag "Update list" %>
+  <%= submit_tag "Update list", class: "button button-second" %>
 <% end %>
 
 <%= "No posts found near you. Be the first to add one:" if @posts.length == 0 %>
