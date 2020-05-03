@@ -27,7 +27,14 @@
 
 .button-home {
   padding: 16px 24px;
+}
+
+.button-home.button-primary {
   margin-top: 48px;
+}
+
+.button-home.button-second {
+  margin-top: 24px;
 }
 
 .button {

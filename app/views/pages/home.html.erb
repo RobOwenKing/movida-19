@@ -5,6 +5,7 @@
 
   <% if user_signed_in? %>
     <%= link_to "See nearby posts", posts_path, class: "button-home button-primary" %>
+    <%= link_to "Create post", new_post_path, class: "button-home button-second" %>
   <% else %>
     <%= link_to "Sign up", new_user_registration_path, class: "button-home button-primary" %>
   <% end %>
